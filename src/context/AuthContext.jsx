@@ -2,6 +2,12 @@ import React, { createContext, useContext, useState, useEffect } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 
+// Set axios base URL for production/deployed environment
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://foodwastemanagement-274y.onrender.com';
+if (import.meta.env.PROD) {
+  axios.defaults.baseURL = API_BASE_URL;
+}
+
 const AuthContext = createContext();
 
 export const useAuth = () => {
