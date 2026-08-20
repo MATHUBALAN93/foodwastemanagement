@@ -32,7 +32,8 @@ if (!fs.existsSync(uploadsDir)) {
 }
 
 // Database connection
-const MONGODB_URI = 'mongodb+srv://mathubalan936:w6PaYpnnwIdG08tp@cluster0.taaw7pz.mongodb.net/foodshare;';
+const MONGODB_URI = process.env.MONGODB_URI;
+const PORT = process.env.PORT || 3001;
 
 mongoose.connect(MONGODB_URI)
   .then(() => {
